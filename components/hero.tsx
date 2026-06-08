@@ -30,15 +30,15 @@ export function Hero() {
       <div className="sticky top-0 h-screen overflow-hidden bg-ink">
         <BackdropPattern />
 
-        {/* GIF: absolute, right half, behind text (z-10) */}
-        <div className="absolute inset-y-0 left-[40%] right-0 z-10 flex items-center justify-center">
+        {/* GIF: móvil → mitad inferior | desktop → mitad derecha */}
+        <div className="absolute inset-x-0 bottom-0 z-10 h-[68vh] md:inset-y-0 md:left-[40%] md:h-full">
           <GifScrubber scrollYProgress={scrollYProgress} reduce={!!reduce} />
         </div>
 
-        {/* TEXT: normal flow, z-20 — solapa el GIF */}
-        <div className="relative z-20 flex h-full flex-col justify-center px-8 md:px-16 lg:px-24">
+        {/* TEXT: móvil → parte superior | desktop → centrado izquierda */}
+        <div className="relative z-20 flex h-full flex-col justify-start pt-40 px-6 md:justify-center md:pt-0 md:px-16 lg:px-24">
           <motion.div
-            className="flex max-w-[58%] flex-col"
+            className="flex max-w-full flex-col md:max-w-[58%]"
           >
             {/* Eyebrow */}
             <motion.span
@@ -58,7 +58,7 @@ export function Hero() {
               mode="chars"
               delay={0.45}
               stagger={0.04}
-              className="font-display text-[clamp(4.5rem,8vw,9rem)] leading-[0.88] tracking-tight text-cream"
+              className="font-display text-[clamp(2.6rem,8vw,6.5rem)] leading-[1.1] tracking-tight text-cream"
             />
 
             {/* Body */}
@@ -66,7 +66,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.35, duration: 0.7, ease: 'easeOut' }}
-              className="mt-7 max-w-[32ch] text-lg leading-relaxed text-cream/80 md:text-xl"
+              className="mt-4 max-w-[32ch] line-clamp-2 text-base leading-relaxed text-cream/80 md:mt-7 md:line-clamp-none md:text-xl"
             >
               Sabor de calle, alma de autor. Ingredientes frescos, recetas de
               siempre y el taco que cambia todo lo demás.
@@ -98,7 +98,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2.05, duration: 0.9 }}
-              className="mt-12 flex items-center gap-6"
+              className="mt-12 hidden items-center gap-6 md:flex"
             >
               <Stat value="+8k"  label="tacos por semana" />
               <div className="h-8 w-px bg-cream/15" aria-hidden />
@@ -109,60 +109,36 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Scroll hint — Hot Line */}
+        {/* Scroll hint */}
         <motion.div
           style={reduce ? undefined : { opacity: hintOpacity }}
           className="absolute bottom-8 left-1/2 z-30 -translate-x-1/2"
         >
-          <div className="flex flex-col items-center gap-2">
-            {/* "SCROLL" con reveal de izquierda a derecha y guiones laterales */}
-            <div className="flex items-center gap-2.5">
-              <motion.div
-                className="h-px w-4 bg-pink"
-                style={{ transformOrigin: 'right' }}
-                animate={reduce ? {} : { scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-              />
-
-              <div className="relative overflow-hidden">
-                {/* Capa fantasma (texto apagado) */}
-                <span className="select-none font-display text-[11px] uppercase tracking-[0.45em] text-cream/20">
-                  SCROLL
-                </span>
-                {/* Capa iluminada que se revela con clip-path */}
-                <motion.div
-                  className="absolute inset-0 overflow-hidden"
-                  animate={reduce ? {} : {
-                    clipPath: [
-                      'inset(0% 100% 0% 0%)',
-                      'inset(0% 0% 0% 0%)',
-                      'inset(0% 0% 0% 100%)',
-                    ],
-                  }}
-                  transition={{ duration: 2.4, repeat: Infinity, ease: [0.4, 0, 0.2, 1], times: [0, 0.45, 1] }}
+          <div className="flex flex-col items-center gap-3">
+            <span className="select-none font-sans text-[9px] uppercase tracking-[0.5em] text-cream/35">
+              scroll
+            </span>
+            <div className="flex flex-col items-center gap-[5px]">
+              {([0, 0.22, 0.44] as const).map((delay, i) => (
+                <motion.svg
+                  key={i}
+                  width="14"
+                  height="8"
+                  viewBox="0 0 14 8"
+                  fill="none"
+                  className="text-cream"
+                  animate={reduce ? {} : { opacity: [0.12, 0.75, 0.12] }}
+                  transition={{ duration: 1.8, repeat: Infinity, delay, ease: 'easeInOut' }}
                 >
-                  <span className="select-none font-display text-[11px] uppercase tracking-[0.45em] text-cream">
-                    SCROLL
-                  </span>
-                </motion.div>
-              </div>
-
-              <motion.div
-                className="h-px w-4 bg-pink"
-                style={{ transformOrigin: 'left' }}
-                animate={reduce ? {} : { scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-              />
-            </div>
-
-            {/* Barra vertical con salsa roja cayendo */}
-            <div className="relative h-12 w-[2px] overflow-hidden rounded-full bg-cream/10">
-              <motion.div
-                className="absolute inset-x-0 h-full rounded-full"
-                style={{ background: 'linear-gradient(to bottom, #ff3131, #ff8e8e)' }}
-                animate={reduce ? {} : { y: ['-100%', '0%', '100%'] }}
-                transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-              />
+                  <path
+                    d="M1 1L7 7L13 1"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </motion.svg>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -284,7 +260,7 @@ function GifScrubber({ scrollYProgress, reduce }: GifScrubberProps) {
       <canvas
         ref={canvasRef}
         aria-label="Taco desarmándose en ingredientes"
-        className="h-auto max-h-[95vh] w-auto max-w-full transition-opacity duration-700"
+        className="h-auto w-full max-h-[95vh] md:w-auto md:max-w-full transition-opacity duration-700"
         style={{ opacity: loaded ? 1 : 0 }}
       />
     </div>

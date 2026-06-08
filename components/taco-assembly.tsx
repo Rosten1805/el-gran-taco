@@ -94,7 +94,7 @@ function Heading({
         mode="words"
         stagger={0.08}
         text="Cinco piezas. Un taco perfecto."
-        className="mt-3 font-display text-4xl leading-[0.95] tracking-tight text-ink sm:text-5xl md:text-6xl"
+        className="mt-3 font-display text-3xl leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl"
       />
     </motion.div>
   )

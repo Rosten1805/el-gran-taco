@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { useRef, useState } from 'react'
 import Image from 'next/image'
 
 export function FinalCTA() {
@@ -41,7 +40,7 @@ export function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 max-w-4xl font-display text-[clamp(3.5rem,8vw,8rem)] leading-[0.88] tracking-tight"
+          className="mt-6 max-w-4xl font-display text-[clamp(2.8rem,5.5vw,6rem)] leading-[1.1] tracking-tight"
         >
           <span className="text-cream">Contacta ahora,</span>
           <br />
@@ -68,12 +67,18 @@ export function FinalCTA() {
           transition={{ duration: 0.6, delay: 0.45 }}
           className="mt-12 flex flex-wrap items-center gap-4"
         >
-          <MagneticButton href="#" primary>
-            Pedir ahora →
-          </MagneticButton>
-          <MagneticButton href="#" primary={false}>
-            Reservar mesa →
-          </MagneticButton>
+          <a
+            href="#"
+            className="rounded-full bg-red px-8 py-4 text-sm font-semibold text-cream shadow-[0_8px_24px_-8px_rgba(255,49,49,0.7)] transition-transform hover:scale-105 active:scale-95"
+          >
+            Pedir ahora
+          </a>
+          <a
+            href="#"
+            className="rounded-full border border-cream/25 px-8 py-4 text-sm font-semibold text-cream transition-transform hover:scale-105 hover:bg-cream/10 active:scale-95"
+          >
+            Reservar mesa
+          </a>
           <a
             href="#tacos"
             className="text-sm font-semibold text-cream/55 underline-offset-4 hover:text-cream hover:underline"
@@ -114,45 +119,3 @@ function ContactItem({ label, value }: { label: string; value: string }) {
   )
 }
 
-function MagneticButton({
-  children,
-  href,
-  primary,
-}: {
-  children: React.ReactNode
-  href: string
-  primary: boolean
-}) {
-  const ref = useRef<HTMLAnchorElement>(null)
-  const [pos, setPos] = useState({ x: 0, y: 0 })
-
-  function handleMove(e: React.MouseEvent) {
-    if (!ref.current) return
-    const rect = ref.current.getBoundingClientRect()
-    setPos({
-      x: (e.clientX - rect.left - rect.width / 2) * 0.3,
-      y: (e.clientY - rect.top - rect.height / 2) * 0.3,
-    })
-  }
-
-  return (
-    <motion.a
-      ref={ref}
-      href={href}
-      onMouseMove={handleMove}
-      onMouseLeave={() => setPos({ x: 0, y: 0 })}
-      animate={{ x: pos.x, y: pos.y }}
-      transition={{ type: 'spring', stiffness: 200, damping: 14 }}
-      className={`group relative overflow-hidden rounded-full px-9 py-4 text-sm font-semibold transition-shadow ${
-        primary
-          ? 'bg-red text-cream shadow-[0_8px_32px_-8px_rgba(255,49,49,0.7)] hover:shadow-[0_12px_40px_-8px_rgba(255,49,49,0.9)]'
-          : 'border border-cream/25 text-cream hover:bg-cream/10'
-      }`}
-    >
-      <span className="relative z-10">{children}</span>
-      {primary && (
-        <span className="absolute inset-0 z-0 origin-bottom scale-y-0 bg-pink transition-transform duration-300 group-hover:scale-y-100" />
-      )}
-    </motion.a>
-  )
-}

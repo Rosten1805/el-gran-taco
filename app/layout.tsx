@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { Outfit, Lilita_One, Geist_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
+import { Outfit, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
 const outfit = Outfit({
@@ -8,10 +9,10 @@ const outfit = Outfit({
   subsets: ['latin'],
 })
 
-const lilita = Lilita_One({
+const kgColdCoffee = localFont({
+  src: '../assets/KGColdCoffee.ttf',
   variable: '--font-display',
-  weight: '400',
-  subsets: ['latin'],
+  display: 'swap',
 })
 
 const geistMono = Geist_Mono({
@@ -38,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${outfit.variable} ${lilita.variable} ${geistMono.variable} bg-background`}
+      className={`${outfit.variable} ${kgColdCoffee.variable} ${geistMono.variable} bg-background`}
     >
       <body className="font-sans antialiased overflow-x-hidden">
         {children}

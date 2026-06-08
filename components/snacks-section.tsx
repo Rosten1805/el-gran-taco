@@ -45,14 +45,14 @@ export function SnacksSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-3 font-display text-5xl leading-[0.9] tracking-tight text-cream md:text-7xl"
+          className="mt-3 font-display text-4xl leading-[1.1] tracking-tight text-cream md:text-6xl"
         >
           Snacks
         </motion.h2>
       </div>
 
       {/* Grid de fotos */}
-      <div className="flex h-[60vh] min-h-[480px] w-full overflow-hidden">
+      <div className="grid grid-cols-2 md:flex md:h-[60vh] md:min-h-[480px] w-full overflow-hidden">
       {snacks.map((snack, i) => (
         <motion.div
           key={snack.name}
@@ -60,28 +60,24 @@ export function SnacksSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ delay: i * 0.1, duration: 0.6 }}
-          // nachos ocupa el doble de ancho
-          className={`group relative overflow-hidden ${snack.wide ? 'flex-[2]' : 'flex-1'}`}
+          className={`group relative overflow-hidden aspect-[4/3] md:aspect-auto ${snack.wide ? 'md:flex-[2]' : 'md:flex-1'}`}
         >
           <Image
             src={snack.src}
             alt={snack.name.replace('\n', ' ')}
             fill
-            sizes="25vw"
+            sizes="(max-width: 768px) 50vw, 25vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
 
-          {/* Overlay oscuro base + hover más tenue */}
           <div className="absolute inset-0 bg-ink/40 transition-opacity duration-500 group-hover:bg-ink/20" />
 
-          {/* Separador vertical entre cards */}
           {i < snacks.length - 1 && (
             <div className="absolute inset-y-0 right-0 z-10 w-px bg-cream/10" />
           )}
 
-          {/* Nombre del snack — top-left como en la referencia */}
-          <div className="absolute left-5 top-5 z-10">
-            <p className="font-display text-xl leading-tight tracking-wide text-cream drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] md:text-2xl lg:text-3xl">
+          <div className="absolute left-3 top-3 z-10 md:left-5 md:top-5">
+            <p className="font-display text-sm leading-tight tracking-wide text-cream drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] md:text-xl lg:text-3xl">
               {snack.name.split('\n').map((line, li) => (
                 <span key={li} className="block">{line.toUpperCase()}</span>
               ))}

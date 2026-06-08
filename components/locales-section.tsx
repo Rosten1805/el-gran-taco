@@ -34,7 +34,7 @@ export function LocalesSection() {
             inView
             mode="words"
             text="Tres ciudades, un mismo ritual"
-            className="mt-3 font-display text-4xl leading-[0.95] tracking-tight text-cream md:text-6xl"
+            className="mt-3 font-display text-3xl leading-[1.1] tracking-tight text-cream md:text-5xl"
           />
         </div>
 

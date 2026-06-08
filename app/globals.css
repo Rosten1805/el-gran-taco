@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-display), 'Lilita One', system-ui;
-  --font-display: var(--font-display), 'Lilita One', system-ui;
+  --font-heading: var(--font-display), 'KG Cold Coffee', system-ui;
+  --font-display: var(--font-display), 'KG Cold Coffee', system-ui;
   --font-sans: var(--font-outfit), 'Outfit Fallback', system-ui;
   --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
 

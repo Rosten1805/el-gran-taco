@@ -71,7 +71,7 @@ function SectionPhotoLeft() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="font-display text-5xl leading-[0.88] tracking-tight text-ink md:text-6xl lg:text-[5.5rem]"
+          className="font-display text-4xl leading-[1.1] tracking-tight text-ink md:text-5xl lg:text-[4.5rem]"
         >
           El taco que<br />lo cambia todo
         </motion.h2>
@@ -104,9 +104,9 @@ function SectionPhotoLeft() {
           </a>
           <a
             href="#locales"
-            className="text-sm font-semibold text-ink/60 underline-offset-4 hover:text-ink hover:underline"
+            className="rounded-full border border-ink/25 px-8 py-4 text-sm font-semibold text-ink transition-transform hover:scale-105 hover:border-ink/50 active:scale-95"
           >
-            Nuestros locales →
+            Nuestros locales
           </a>
         </motion.div>
       </div>
@@ -138,7 +138,7 @@ function SectionPhotoRight() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="font-display text-5xl leading-[0.88] tracking-tight text-cream md:text-6xl lg:text-[5.5rem]"
+          className="font-display text-4xl leading-[1.1] tracking-tight text-cream md:text-5xl lg:text-[4.5rem]"
         >
           Tu próximo<br />taco favorito
         </motion.h2>
@@ -175,18 +175,18 @@ function SectionPhotoRight() {
           className="mt-10 flex items-center gap-8"
         >
           <div>
-            <p className="font-display text-4xl text-cream">30'</p>
-            <p className="mt-0.5 text-xs font-medium uppercase tracking-widest text-cream/45">entrega media</p>
+            <p className="font-display text-2xl leading-none text-cream">30'</p>
+            <p className="mt-1 text-xs font-medium uppercase tracking-widest text-cream/45">entrega media</p>
           </div>
-          <div className="h-10 w-px bg-cream/15" />
+          <div className="h-8 w-px bg-cream/15" />
           <div>
-            <p className="font-display text-4xl text-cream">3</p>
-            <p className="mt-0.5 text-xs font-medium uppercase tracking-widest text-cream/45">locales España</p>
+            <p className="font-display text-2xl leading-none text-cream">3</p>
+            <p className="mt-1 text-xs font-medium uppercase tracking-widest text-cream/45">locales España</p>
           </div>
-          <div className="h-10 w-px bg-cream/15" />
+          <div className="h-8 w-px bg-cream/15" />
           <div>
-            <p className="font-display text-4xl text-cream">★ 4.9</p>
-            <p className="mt-0.5 text-xs font-medium uppercase tracking-widest text-cream/45">en Google</p>
+            <p className="font-display text-2xl leading-none text-cream">★ 4.9</p>
+            <p className="mt-1 text-xs font-medium uppercase tracking-widest text-cream/45">en Google</p>
           </div>
         </motion.div>
 

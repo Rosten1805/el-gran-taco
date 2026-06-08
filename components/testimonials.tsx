@@ -34,7 +34,7 @@ export function Testimonials() {
         <span className="text-xs font-semibold uppercase tracking-[0.3em] text-red">
           Lo que dice la banda
         </span>
-        <h2 className="mt-3 font-display text-4xl leading-[0.95] tracking-tight text-ink md:text-6xl">
+        <h2 className="mt-3 font-display text-3xl leading-[1.1] tracking-tight text-ink md:text-5xl">
           Un muro de antojos cumplidos
         </h2>
       </div>

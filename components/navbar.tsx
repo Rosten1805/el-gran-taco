@@ -68,7 +68,7 @@ export function Navbar() {
 
         <a
           href="#cta"
-          className="rounded-full bg-red px-5 py-2.5 text-sm font-semibold text-cream shadow-[0_8px_24px_-8px_rgba(255,49,49,0.7)] transition-transform hover:scale-105 active:scale-95"
+          className="rounded-full bg-red px-8 py-4 text-sm font-semibold text-cream shadow-[0_8px_24px_-8px_rgba(255,49,49,0.7)] transition-transform hover:scale-105 active:scale-95"
         >
           Pedir ahora
         </a>

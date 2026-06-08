@@ -37,7 +37,7 @@ export function TacosSection() {
               inView
               mode="words"
               text="Cartas que flotan"
-              className="mt-3 font-display text-5xl leading-[0.9] tracking-tight text-ink md:text-7xl"
+              className="mt-3 font-display text-4xl leading-[1.1] tracking-tight text-ink md:text-6xl"
             />
           </div>
           <p className="max-w-sm text-pretty text-lg text-ink/65">

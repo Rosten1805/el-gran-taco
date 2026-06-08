@@ -10,12 +10,14 @@ import { LocalesSection } from '@/components/locales-section'
 import { Testimonials } from '@/components/testimonials'
 import { FinalCTA } from '@/components/final-cta'
 import { Footer } from '@/components/footer'
+import { ScrollToTop } from '@/components/scroll-to-top'
 
 export default function Page() {
   return (
     <>
       <SmoothScroll />
       <Navbar />
+      <ScrollToTop />
       <main className="bg-cream">
         <Hero />
         <Marquee />
