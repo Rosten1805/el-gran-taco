@@ -36,7 +36,7 @@ export function Hero() {
         </div>
 
         {/* TEXT: móvil → parte superior | desktop → centrado izquierda */}
-        <div className="relative z-20 flex h-full flex-col justify-start pt-40 px-6 md:justify-center md:pt-0 md:px-16 lg:px-24">
+        <div className="relative z-20 flex h-full flex-col justify-start pt-40 px-6 md:justify-center md:pt-24 md:px-16 lg:px-24">
           <motion.div
             className="flex max-w-full flex-col md:max-w-[58%]"
           >
