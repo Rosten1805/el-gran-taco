@@ -21,10 +21,14 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'EL GRAN TACO — Taquería Mexicana Moderna',
+  title: 'El Gran Taco — Taquería Mexicana Moderna',
   description:
     'Una taquería mexicana moderna. Tacos de autor, ingredientes frescos y una experiencia callejera contemporánea. Una vez pruebas el taco correcto, no hay vuelta atrás.',
   generator: 'v0.app',
+  icons: {
+    icon: '/el-gran-taco-letters.png',
+    apple: '/el-gran-taco-letters.png',
+  },
 }
 
 export const viewport = {
