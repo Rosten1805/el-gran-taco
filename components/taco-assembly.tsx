@@ -8,18 +8,21 @@ import {
   type MotionValue,
 } from 'motion/react'
 import { useRef } from 'react'
-import Image from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
 import { SplitText } from './split-text'
+import tortillaImg from '../assets/ing-tortilla.png'
+import carneImg    from '../assets/ing-carne.png'
+import onionImg    from '../assets/ing-onion.png'
+import cilantroImg from '../assets/ing-cilantro.png'
+import salsaImg    from '../assets/ing-salsa.png'
 
 type Layer = {
-  src: string
+  src: StaticImageData
   alt: string
   label: string
-  /** starting offset (scattered) */
   fromX: number
   fromY: number
   fromR: number
-  /** final stacked y position when assembled */
   toY: number
   z: number
   size: number
@@ -27,11 +30,11 @@ type Layer = {
 
 // ordered bottom -> top of the stack
 const layers: Layer[] = [
-  { src: '/ing-tortilla.png', alt: 'Tortilla', label: 'Tortilla de maíz', fromX: -420, fromY: 220, fromR: -35, toY: 70, z: 1, size: 320 },
-  { src: '/ing-carne.png', alt: 'Carne asada', label: 'Carne asada', fromX: 420, fromY: 120, fromR: 30, toY: 18, z: 2, size: 230 },
-  { src: '/ing-onion.png', alt: 'Cebolla', label: 'Cebolla fresca', fromX: -360, fromY: -180, fromR: -25, toY: -18, z: 3, size: 180 },
-  { src: '/ing-cilantro.png', alt: 'Cilantro', label: 'Cilantro', fromX: 380, fromY: -240, fromR: 28, toY: -44, z: 4, size: 180 },
-  { src: '/ing-salsa.png', alt: 'Salsa roja', label: 'Salsa de la casa', fromX: 0, fromY: -340, fromR: 18, toY: -64, z: 5, size: 170 },
+  { src: tortillaImg, alt: 'Tortilla',    label: 'Tortilla de maíz',  fromX: -420, fromY:  220, fromR: -35, toY:  70, z: 1, size: 320 },
+  { src: carneImg,    alt: 'Carne asada', label: 'Carne asada',       fromX:  420, fromY:  120, fromR:  30, toY:  18, z: 2, size: 230 },
+  { src: onionImg,    alt: 'Cebolla',     label: 'Cebolla fresca',    fromX: -360, fromY: -180, fromR: -25, toY: -18, z: 3, size: 180 },
+  { src: cilantroImg, alt: 'Cilantro',    label: 'Cilantro',          fromX:  380, fromY: -240, fromR:  28, toY: -44, z: 4, size: 180 },
+  { src: salsaImg,    alt: 'Salsa roja',  label: 'Salsa de la casa',  fromX:    0, fromY: -340, fromR:  18, toY: -64, z: 5, size: 170 },
 ]
 
 export function TacoAssembly() {

@@ -1,24 +1,25 @@
 'use client'
 
 import { motion } from 'motion/react'
-import Image from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
 import { SplitText } from './split-text'
-
-// Nombres sin prefijo EGT — el logo lo sustituye visualmente
-
+import madridImg   from '../assets/madrid-tacos.webp'
+import murciaImg   from '../assets/murcia-tacos.webp'
+import benidormImg from '../assets/benidorm-tacos.webp'
+import lettersImg  from '../assets/el-gran-taco-letters.png'
 
 type Local = {
   name: string
   area: string
-  src: string
+  src: StaticImageData
   hours: string
   rotate: number
 }
 
 const locales: Local[] = [
-  { name: 'Madrid',   area: 'Madrid',   src: '/madrid-tacos.webp',   hours: '12:00 — 02:00', rotate: -3 },
-  { name: 'Murcia',   area: 'Murcia',   src: '/murcia-tacos.webp',   hours: '13:00 — 00:00', rotate: 2.5 },
-  { name: 'Benidorm', area: 'Benidorm', src: '/benidorm-tacos.webp', hours: '13:00 — 01:00', rotate: -2 },
+  { name: 'Madrid',   area: 'Madrid',   src: madridImg,   hours: '12:00 — 02:00', rotate: -3 },
+  { name: 'Murcia',   area: 'Murcia',   src: murciaImg,   hours: '13:00 — 00:00', rotate: 2.5 },
+  { name: 'Benidorm', area: 'Benidorm', src: benidormImg, hours: '13:00 — 01:00', rotate: -2 },
 ]
 
 export function LocalesSection() {
@@ -70,7 +71,7 @@ export function LocalesSection() {
                 <div className="absolute inset-x-0 bottom-0 p-6">
                   {/* Logo en vez de "EGT" */}
                   <Image
-                    src="/el-gran-taco-letters.png"
+                    src={lettersImg}
                     alt="El Gran Taco"
                     width={200}
                     height={80}

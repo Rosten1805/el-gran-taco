@@ -2,24 +2,28 @@
 
 import { motion, useReducedMotion } from 'motion/react'
 import { useRef, useState } from 'react'
-import Image from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
 import { SplitText } from './split-text'
+import pastorImg  from '../assets/taco-pastor.png'
+import carnitasImg from '../assets/taco-carnitas.png'
+import birriaImg  from '../assets/taco-birria.png'
+import tingaImg   from '../assets/tinga-de-pollo.png'
 
 type Taco = {
   name: string
-  src: string
+  src: StaticImageData
   desc: string
   spice: number
   kcal: number
-  floatOffset: number   // px hacia arriba en el float
-  floatDuration: number // segundos del ciclo
+  floatOffset: number
+  floatDuration: number
 }
 
 const tacos: Taco[] = [
-  { name: 'Al Pastor',    src: '/taco-pastor.png',   desc: 'Cerdo marinado, piña y cilantro.',   spice: 3, kcal: 240, floatOffset: 12, floatDuration: 4.2 },
-  { name: 'Carnitas',     src: '/taco-carnitas.png', desc: 'Cerdo confitado, cebolla y limón.',  spice: 2, kcal: 280, floatOffset: 8,  floatDuration: 3.6 },
-  { name: 'Birria',       src: '/taco-birria.png',   desc: 'Res estofada, tortilla dorada.',     spice: 4, kcal: 320, floatOffset: 10, floatDuration: 4.8 },
-  { name: 'Tinga de Pollo', src: '/tinga-de-pollo.png',   desc: 'Pollo desmechado, chipotles y crema.',  spice: 2, kcal: 220, floatOffset: 9,  floatDuration: 3.9 },
+  { name: 'Al Pastor',      src: pastorImg,   desc: 'Cerdo marinado, piña y cilantro.',      spice: 3, kcal: 240, floatOffset: 12, floatDuration: 4.2 },
+  { name: 'Carnitas',       src: carnitasImg, desc: 'Cerdo confitado, cebolla y limón.',     spice: 2, kcal: 280, floatOffset: 8,  floatDuration: 3.6 },
+  { name: 'Birria',         src: birriaImg,   desc: 'Res estofada, tortilla dorada.',        spice: 4, kcal: 320, floatOffset: 10, floatDuration: 4.8 },
+  { name: 'Tinga de Pollo', src: tingaImg,    desc: 'Pollo desmechado, chipotles y crema.',  spice: 2, kcal: 220, floatOffset: 9,  floatDuration: 3.9 },
 ]
 
 export function TacosSection() {

@@ -3,6 +3,7 @@
 import { motion, useMotionValueEvent, useScroll, AnimatePresence } from 'motion/react'
 import { useState } from 'react'
 import Image from 'next/image'
+import lettersImg from '../assets/el-gran-taco-letters.png'
 
 const links = [
   { label: 'Tacos',        href: '#tacos' },
@@ -38,7 +39,7 @@ export function Navbar() {
           {/* Logo */}
           <a href="#top" className="flex items-center" onClick={closeMenu}>
             <Image
-              src="/el-gran-taco-letters.png"
+              src={lettersImg}
               alt="El Gran Taco"
               width={180}
               height={70}

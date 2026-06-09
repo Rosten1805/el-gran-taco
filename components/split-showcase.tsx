@@ -2,6 +2,9 @@
 
 import Image from 'next/image'
 import { motion } from 'motion/react'
+import ctaTacosImg  from '../assets/cta-tacos.png'
+import logotipoImg  from '../assets/el-gran-taco-logotipo.png'
+import heroTacosImg from '../assets/hero-tacos.png'
 
 // ─── Section 1: foto izquierda / texto derecha ────────────────────────────────
 export function SplitShowcase() {
@@ -20,7 +23,7 @@ function SectionPhotoLeft() {
       {/* Foto: izquierda */}
       <div className="relative min-h-[55vw] flex-1 overflow-hidden md:min-h-0">
         <Image
-          src="/cta-tacos.png"
+          src={ctaTacosImg}
           alt="Tacos artesanales El Gran Taco"
           fill
           sizes="50vw"
@@ -44,7 +47,7 @@ function SectionPhotoLeft() {
           className="mb-10"
         >
           <Image
-            src="/el-gran-taco-logotipo.png"
+            src={logotipoImg}
             alt="El Gran Taco"
             width={280}
             height={110}
@@ -210,7 +213,7 @@ function SectionPhotoRight() {
       {/* Foto: derecha */}
       <div className="relative min-h-[55vw] flex-1 overflow-hidden md:min-h-0">
         <Image
-          src="/hero-tacos.png"
+          src={heroTacosImg}
           alt="Tacos a domicilio El Gran Taco"
           fill
           sizes="50vw"

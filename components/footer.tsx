@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import footerLogoImg from '../assets/footer-logotype.png'
 
 const navLinks = [
   { label: 'Menú',         href: '#tacos' },
@@ -77,7 +78,7 @@ export function Footer() {
           <div className="flex flex-col gap-6">
             <a href="#top" className="inline-block">
               <Image
-                src="/footer-logotype.png"
+                src={footerLogoImg}
                 alt="El Gran Taco"
                 width={320}
                 height={320}

@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react'
 import Image from 'next/image'
+import ctaTacosImg from '../assets/cta-tacos.png'
 
 export function FinalCTA() {
   return (
@@ -12,7 +13,7 @@ export function FinalCTA() {
     >
       {/* Imagen de fondo un poco más visible */}
       <Image
-        src="/cta-tacos.png"
+        src={ctaTacosImg}
         alt="Taco mexicano en primer plano"
         fill
         sizes="100vw"

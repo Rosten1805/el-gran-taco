@@ -7,22 +7,29 @@ import {
   useReducedMotion,
 } from 'motion/react'
 import { useRef } from 'react'
-import Image from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
+import logotipoImg  from '../assets/el-gran-taco-logotipo.png'
+import cilantroImg  from '../assets/cilantro-el-gran-taco.webp'
+import cebollaImg   from '../assets/cebollas-el-gran-taco.webp'
+import pinaImg      from '../assets/piña-el-gran-taco.webp'
+import aguacateImg  from '../assets/aguacate-el-gran-taco.webp'
+import chilesImg    from '../assets/chiles-el-gran-taco.webp'
+import limaImg      from '../assets/lima-el-gran-taco.webp'
 
 type Prod = {
-  src: string
+  src: StaticImageData
   name: string
   note: string
   depth: number
 }
 
 const products: Prod[] = [
-  { src: '/ing-cilantro.png',          name: 'Cilantro', note: 'Recién cortado',    depth: 0.9 },
-  { src: '/slider-cebolla-morada.png', name: 'Cebolla',  note: 'Picada fina',       depth: 0.6 },
-  { src: '/pina-slider.png',           name: 'Piña',     note: 'Dulce y tropical',  depth: 0.5 },
-  { src: '/prod-avocado.png',          name: 'Aguacate', note: 'Guacamole del día', depth: 0.8 },
-  { src: '/prod-chile.png',            name: 'Chile',    note: 'El que pica rico',  depth: 0.5 },
-  { src: '/prod-lime.png',             name: 'Lima',     note: 'Acidez fresca',     depth: 0.4 },
+  { src: cilantroImg,  name: 'Cilantro', note: 'Recién cortado',    depth: 0.9 },
+  { src: cebollaImg,   name: 'Cebolla',  note: 'Picada fina',       depth: 0.6 },
+  { src: pinaImg,      name: 'Piña',     note: 'Dulce y tropical',  depth: 0.5 },
+  { src: aguacateImg,  name: 'Aguacate', note: 'Guacamole del día', depth: 0.8 },
+  { src: chilesImg,    name: 'Chile',    note: 'El que pica rico',  depth: 0.5 },
+  { src: limaImg,      name: 'Lima',     note: 'Acidez fresca',     depth: 0.4 },
 ]
 
 export function IngredientsParallax() {
@@ -82,7 +89,7 @@ export function IngredientsParallax() {
           {/* Logo como última "slide" */}
           <div className="flex w-[72vw] shrink-0 snap-start flex-col items-center justify-center">
             <Image
-              src="/el-gran-taco-logotipo.png"
+              src={logotipoImg}
               alt="El Gran Taco"
               width={280}
               height={280}
@@ -108,7 +115,7 @@ export function IngredientsParallax() {
             className="pointer-events-none absolute left-[74%] top-[58%] -translate-x-1/2 -translate-y-1/2"
           >
             <Image
-              src="/el-gran-taco-logotipo.png"
+              src={logotipoImg}
               alt="El Gran Taco"
               width={480}
               height={480}
